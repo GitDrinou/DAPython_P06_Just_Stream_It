@@ -1,17 +1,16 @@
-export function defaultListItems() {
-    const ranking_list = document.querySelectorAll('.best-ranking__list');
-
-    let maxItems = 0;
+export function defaultListItems(maxDefault, maxTablet, maxMobile) {
+    const rankingList = document.querySelectorAll('.best-ranking__list');
+    let maxItems;
 
     if (window.matchMedia('(min-width: 1024px)').matches) {
-        maxItems = 6;
+        maxItems = maxDefault;
     } else if (window.matchMedia('(min-width: 768px)').matches) {
-        maxItems = 4;
+        maxItems = maxTablet;
     } else {
-        maxItems = 2;
+        maxItems = maxMobile;
     }
-    
-    ranking_list.forEach(list => {
+
+    rankingList.forEach(list => {
         const items = list.querySelectorAll('li');
 
         items.forEach((item, index) => {
@@ -22,5 +21,16 @@ export function defaultListItems() {
             }
         })
     })
+}
 
+export function displayMorOrLess(buttonId, listId, maxDefault) {
+    const labelButton = document.getElementById(buttonId).innerHTML;
+    const pictureList = document.getElementById(listId);
+    const items = pictureList.querySelectorAll('li');
+    items.forEach(item => {
+        if (item.style.display == 'none') {
+            item.style.display = 'block';
+        }
+    }) 
+    document.getElementById(buttonId).innerHTML = "Voir moins";
 }
