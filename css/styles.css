@@ -81,6 +81,7 @@ article {
     font-size: 2em;
     text-align: left;
     padding: 0;
+    font-weight: 600;
 }
 
 .best-picture-details__text {
@@ -256,12 +257,6 @@ select {
         gap: 24px 34px;
     }
 
-    .best-ranking__list li{
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 24px 34px;
-    }
-
     .best-ranking-picture {
         height: 281px;
     }
@@ -294,7 +289,54 @@ select {
 /* Desktop style (1024px and more */
 @media screen and (min-width: 1024px) {
     header {
-        background-color: goldenrod;
+        display: grid;
+        grid-template-columns: 15% auto;
+        align-items: center;
+        justify-content: start;
+        height: 122px;
+    }
+
+    .img-logo {
+        width: 127px;
+        height: auto;
+    }
+
+    .best-picture__title, 
+    .best-ranking__title, 
+    .best-ranking-category__title,
+    .other__title,
+    .best-picture-details__title {
+        font-size: 3em;
+    }
+
+    .best-ranking__title {
+        padding-top: 16px;
+        padding-bottom: 23px;
+    }
+
+    .best-picture-details img {
+        float: left;
+        margin-right: 26px;
+        height: 334px;
+        width: 227px;
+    }
+
+    .best-picture-details__content {
+        height: 334px;
+    }
+
+    .best-picture-details__text {
+        font-size: 1.75em;
+    }
+
+    .best-ranking__list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 46px 42px;
+    }
+
+    .other__header {
+        grid-template-columns: 12% 40%;
     }
     
 }
