@@ -186,6 +186,12 @@ select {
 
 /* Tablet style (768px and more */
 @media screen and (min-width: 768px) {
+    body {
+        max-width: 788px;
+        margin: 0 auto;
+        padding: 43px 71px;
+    }
+
     header {
         background-color: var(--bg-color-header);
         display: grid;
@@ -258,7 +264,11 @@ select {
     }
 
     .best-ranking-picture {
-        height: 281px;
+        height: 286px;
+    }
+    
+    .overlay {
+        height: 117px;
     }
 
     .best-ranking__list li {
@@ -288,9 +298,15 @@ select {
 
 /* Desktop style (1024px and more */
 @media screen and (min-width: 1024px) {
+    body {
+        max-width: 1054px;
+        margin: 0 auto;
+        padding: 60px 71px;
+    }
+
     header {
         display: grid;
-        grid-template-columns: 15% auto;
+        grid-template-columns: 20% auto;
         align-items: center;
         justify-content: start;
         height: 122px;
@@ -333,6 +349,18 @@ select {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 46px 42px;
+    }
+
+    .best-ranking-picture {
+        height: 252px;
+    }
+
+    .btn__more-or-less {
+        display: none;
+    }
+
+    .overlay {
+        height: 102px;
     }
 
     .other__header {
