@@ -1,11 +1,14 @@
 import { defaultListItems, displayMorOrLess } from "./display_utils.js";
-import { MAX_COUNT, MAX_MOBILE, MAX_TABLET } from "./constants.js";
 
 window.addEventListener('DOMContentLoaded', () => {
-    defaultListItems(MAX_COUNT, MAX_TABLET, MAX_MOBILE);
+    defaultListItems();
 
-    document.getElementById('ranking_picture').addEventListener('click', () => {
-       displayMorOrLess("ranking_picture", "bestRankingList", MAX_COUNT); 
+    document.body.addEventListener('click', (event) => {
+        if (event.target.classList.contains('btn__more-or-less')) {
+            const button = event.target;
+            const targetListId = button.getAttribute('data-target');
+            displayMorOrLess(button.id, targetListId)
+        }
     })
 })
 
