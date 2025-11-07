@@ -7,7 +7,7 @@ import {
     MIN_WIDTH_TABLET } from "./constants.js";
 
 export function defaultListItems() {
-    const rankingList = document.querySelectorAll('.best-ranking__list');
+    const rankingList = document.querySelectorAll('.best-film-ranking__list');
     let maxItems = screenItems();
 
     rankingList.forEach(list => {
@@ -19,8 +19,8 @@ export function defaultListItems() {
 
 export function displayMorOrLess(buttonId, listId) {
     const labelButton = document.getElementById(buttonId).innerHTML;
-    const pictureList = document.getElementById(listId);
-    const items = pictureList.querySelectorAll('li');
+    const filmList = document.getElementById(listId);
+    const items = filmList.querySelectorAll('li');
     
     if (labelButton == LABEL_SEE_MORE) {
         items.forEach(item => {
