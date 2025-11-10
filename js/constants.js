@@ -5,3 +5,5 @@ export const MAX_TABLET = 4;
 export const MAX_MOBILE = 2;
 export const LABEL_SEE_MORE = "Voir plus";
 export const LABEL_SEE_LESS = "Voir moins";
+export const URL_SERVER = "http://127.0.0.1:8000";
+export const ENDPOINT_API_CATEGORIES = "/api/v1/genres/"

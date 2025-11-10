@@ -6,7 +6,7 @@ import {
     MIN_WIDTH_DESKTOP,
     MIN_WIDTH_TABLET } from "./constants.js";
 
-export function defaultListItems() {
+export const defaultListItems = () => {
     const rankingList = document.querySelectorAll('.best-film-ranking__list');
     let maxItems = screenItems();
 
@@ -17,7 +17,7 @@ export function defaultListItems() {
     })
 }
 
-export function displayMorOrLess(buttonId, listId) {
+export const displayMorOrLess = (buttonId, listId) => {
     const labelButton = document.getElementById(buttonId).innerHTML;
     const filmList = document.getElementById(listId);
     const items = filmList.querySelectorAll('li');
@@ -33,6 +33,24 @@ export function displayMorOrLess(buttonId, listId) {
         let maxItems = screenItems();
         displayedItems(items, maxItems);
         document.getElementById(buttonId).innerHTML = LABEL_SEE_MORE;
+    }
+
+}
+
+export const displayModal = (dialog) => {
+     const closeModalMobile = document.querySelector('.btn-close__mobile');
+    const closeModalDesktop = document.querySelector('.btn-close__desktop');
+    
+    if (closeModalMobile) {
+        closeModalMobile.addEventListener('click', () => {
+            dialog.close();
+        })
+    }
+
+    if (closeModalDesktop) {
+        closeModalDesktop.addEventListener('click', () => {
+            dialog.close();
+        })
     }
 
 }
