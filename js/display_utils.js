@@ -17,6 +17,22 @@ export const defaultListItems = () => {
     })
 }
 
+export const displayOtherItems = () => {
+    const otherSelect = document.getElementById('categoriesSelect');
+    const otherSection = document.getElementById('otherCategoriesSection');
+
+    if (otherSelect.value == "default") {
+        otherSection.style.display = 'none';
+    }
+    otherSelect.addEventListener('change', () => {
+        if (otherSelect.value == "default") {
+            otherSection.style.display = 'none';
+        } else {
+            otherSection.style.display = 'block';
+        }
+    })
+}
+
 export const displayMorOrLess = (buttonId, listId) => {
     const labelButton = document.getElementById(buttonId).innerHTML;
     const filmList = document.getElementById(listId);

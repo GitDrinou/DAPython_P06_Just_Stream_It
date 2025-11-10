@@ -1,4 +1,4 @@
-import { defaultListItems, displayMorOrLess, displayModal} from "./display_utils.js";
+import { defaultListItems, displayOtherItems, displayMorOrLess, displayModal} from "./display_utils.js";
 import { fillTheCategoriesSelector } from "./categories.js";
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -6,6 +6,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const dialog = document.querySelector('dialog');
    
     defaultListItems();
+    displayOtherItems();
     displayModal(dialog);
 
     document.body.addEventListener('click', (event) => {

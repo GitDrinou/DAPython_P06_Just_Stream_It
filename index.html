@@ -178,10 +178,10 @@
             <header class="other__header">
                 <h2 class="other__title">Autres:</h2>
                 <select id="categoriesSelect">
-                    <option value="">-</option>
+                    <option value="default">-</option>
                 </select>
             </header>
-            <section>
+            <section id="otherCategoriesSection">
                 <ul class="best-film-ranking__list" id="bestRankingOtherList">
                     <li class="item-container">
                         <div class="tmp-film best-film-ranking-image"></div>
@@ -243,23 +243,21 @@
             <p>IMDB score: {IMDB Score}</p>
             <p>Recette au box-office: {Montant}</p>
         </header>
-        <main>
-            <section class="film-director">
-                <p>Réalisé par:</p>
-                <p>{Nom réalisateur}</p>
-            </section>
-            <section class="film-resume">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus egestas risus at efficitur sodales. Nam et neque felis. Suspendisse sodales purus at laoreet convallis. Fusce molestie, sapien nec ultrices malesuada, orci nisl sagittis ligula, pretium lacinia risus lectus id nisi. Fusce mollis quam imperdiet consectetur pulvinar. Aenean dolor metus, sagittis eu luctus ut, faucibus et justo. Nam non tortor dui. Quisque volutpat tellus ac justo congue gravida</p>
-            </section>
-            <section class="film-image">
-                <img src="./images/tmp_pic.png" alt="affiche du film">
-            </section>
-            <section class="film-actors">
-                <p>Avec:</p>
-                <p>{Liste des acteurs}</p>
-            </section>
-            <button class="btn-close__desktop" id="closeModalDesktop">Fermer</button>
-        </main>
+        <div class="film-director">
+            <p>Réalisé par:</p>
+            <p>{Nom réalisateur}</p>
+        </div>
+        <div class="film-resume">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus egestas risus at efficitur sodales. Nam et neque felis. Suspendisse sodales purus at laoreet convallis. Fusce molestie, sapien nec ultrices malesuada, orci nisl sagittis ligula, pretium lacinia risus lectus id nisi. Fusce mollis quam imperdiet consectetur pulvinar. Aenean dolor metus, sagittis eu luctus ut, faucibus et justo. Nam non tortor dui. Quisque volutpat tellus ac justo congue gravida</p>
+        </div>
+        <div class="film-image">
+            <img src="./images/tmp_pic.png" alt="affiche du film">
+        </div>
+        <div class="film-actors">
+            <p>Avec:</p>
+            <p>{Liste des acteurs}</p>
+        </div>
+        <button class="btn-close__desktop" id="closeModalDesktop">Fermer</button>
     </dialog>
 
     <script type="module" src="./js/main.js"></script>
