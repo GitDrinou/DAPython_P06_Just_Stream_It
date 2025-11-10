@@ -20,15 +20,20 @@ export const defaultListItems = () => {
 export const displayOtherItems = () => {
     const otherSelect = document.getElementById('categoriesSelect');
     const otherSection = document.getElementById('otherCategoriesSection');
+    const otherBtn = document.getElementById('otherfilm');
 
     if (otherSelect.value == "default") {
         otherSection.style.display = 'none';
+        otherBtn.style.display = 'none';
     }
+    
     otherSelect.addEventListener('change', () => {
         if (otherSelect.value == "default") {
             otherSection.style.display = 'none';
+            otherBtn.style.display = 'none';
         } else {
             otherSection.style.display = 'block';
+            otherBtn.style.display = 'block'
         }
     })
 }
