@@ -1,5 +1,6 @@
 import { defaultListItems, displayOtherItems, displayMorOrLess, displayModal} from "./display_utils.js";
 import { fillTheCategoriesSelector } from "./categories.js";
+import { displayTheBestRankingFilmDetails } from "./films.js";
 
 window.addEventListener('DOMContentLoaded', () => {
 
@@ -23,6 +24,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     // API GET Functions to fill the HTML page
     fillTheCategoriesSelector();
+    displayTheBestRankingFilmDetails();
 
 })
 

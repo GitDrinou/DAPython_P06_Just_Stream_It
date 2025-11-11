@@ -1,6 +1,6 @@
 import { URL_SERVER, ENDPOINT_API_CATEGORIES } from "./constants.js";
 
-export const getListOfCategories = async () => {
+const getListOfCategories = async () => {
     let allCategories = [];
     let nextUrl = `${URL_SERVER}${ENDPOINT_API_CATEGORIES}`
 
