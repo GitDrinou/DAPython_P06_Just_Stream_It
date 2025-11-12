@@ -7,30 +7,35 @@ import {
 } from "./constants.js";
 import { defaultListItems } from "./display_utils.js";
 
+const fetchData = async (url) => {
+    const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`Erreur lors de la récupération des films (page ${url}).`);
+        }
+    const data = await response.json()
+    return data; 
+}
+
 const getListOfBestRankingFilms = async () => {
     let bestRankingFilms = [];
     const sortByImdbScoreDesc = PARAM_VALUE_SORT_BY;
-    let nextUrl = `${URL_SERVER}${ENDPOINT_API_FILMS}`;
-    let url = new URL(nextUrl);
+    const url = new URL(`${URL_SERVER}${ENDPOINT_API_FILMS}`);
     url.searchParams.append(PARAM_SORT_BY, sortByImdbScoreDesc);
 
-    while (url && bestRankingFilms.length <= MAX_COUNT) {
-        try {
-            const response = await fetch(url);
-            if (!response.ok) {
-                throw new Error(`Erreur lors de la récupération des films (page ${url}).`);
-            }
+    try {
+        const data = await fetchData(url);
+        bestRankingFilms = [...bestRankingFilms, ...data.results];
 
-            const data = await response.json();  
-            bestRankingFilms = [...bestRankingFilms, ...data.results];
-            nextUrl = data.next;
-        } 
-        catch (error) {
-            console.error("Erreur :", error);
-            throw error;
-        }
+        if (data.results.length <= MAX_COUNT) {
+            const dataNextPage = await fetchData(data.next);
+            bestRankingFilms = [...bestRankingFilms, ...dataNextPage.results]
+        }  
+    } 
+    catch (error) {
+        console.error("Erreur :", error);
+        throw error;
     }
-    
+
     return bestRankingFilms;
 }
 
