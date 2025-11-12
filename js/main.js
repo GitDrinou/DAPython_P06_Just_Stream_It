@@ -1,11 +1,16 @@
 import { defaultListItems, displayOtherItems, displayMorOrLess, displayModal} from "./display_utils.js";
 import { fillTheCategoriesSelector } from "./categories.js";
-import { displayTheBestRankingFilmDetails } from "./films.js";
+import { displayTheBestRankingFilmDetails, displayListOfBestRankingFilm } from "./films.js";
 
 window.addEventListener('DOMContentLoaded', () => {
 
+    // API GET Functions to fill the HTML page
+    fillTheCategoriesSelector();
+    displayTheBestRankingFilmDetails();
+    displayListOfBestRankingFilm();
+
     const dialog = document.querySelector('dialog');
-   
+
     defaultListItems();
     displayOtherItems();
     displayModal(dialog);
@@ -20,11 +25,12 @@ window.addEventListener('DOMContentLoaded', () => {
         if (event.target.classList.contains('btn-details__red')) {
             dialog.showModal();
         }
-    })
 
-    // API GET Functions to fill the HTML page
-    fillTheCategoriesSelector();
-    displayTheBestRankingFilmDetails();
+        if (event.target.classList.contains('btn-details__black')) {
+            dialog.showModal();
+        }
+    })
+   
 
 })
 

@@ -110,13 +110,16 @@ article {
 }
 
 .best-film-ranking__list li {
-    background-color: var(--bg-color-tmp);
     margin: 0 0 32px 0;
     position: relative;
 }
 
 .best-film-ranking-image {
-    height: 319px;
+        img {
+            height: 319px;
+            width: 100%;
+            object-fit: cover;
+        }
 }
 
 .overlay {
@@ -354,7 +357,11 @@ select {
     }
 
     .best-film-ranking-image {
-        height: 286px;
+        img {
+            height: 286px;
+            width: 100%;
+            object-fit: cover;
+        }
     }
     
     .overlay {
@@ -510,7 +517,11 @@ select {
     }
 
     .best-film-ranking-image {
-        height: 252px;
+        img {
+            height: 252px;
+            width: 100%;
+            object-fit:fill;
+        }
     }
 
     .btn__more-or-less {
