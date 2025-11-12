@@ -237,25 +237,25 @@
     <dialog class="modalContainer">
         <button class="btn-close__mobile">❌</button>
         <header>
-            <h2>{Titre film}</h2>
-            <p>{Date} - {Liste Genre}</p>
-            <p>{Classification} - {Durée du film} ({Pays} / {Langue})</p>
-            <p>IMDB score: {IMDB Score}</p>
-            <p>Recette au box-office: {Montant}</p>
+            <h2 id="modalFilmTitle">{Titre du film}</h2>
+            <p><span id="modalFilmDate"></span> - <span id="modalFilmCatageories"></span></p>
+            <p><span id="modalFilmRates"></span> <span id="modalFilmDuration"></span> (<span id="madalFilmCountries"></span>)</p>
+            <p>IMDB score: <span id="modalFilmScore"></span></p>
+            <p>Recette au box-office: <span id="modalFilmBudget"></span></p>
         </header>
         <div class="film-director">
             <p>Réalisé par:</p>
-            <p>{Nom réalisateur}</p>
+            <p id="modalFilmDirectors"></p>
         </div>
         <div class="film-resume">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus egestas risus at efficitur sodales. Nam et neque felis. Suspendisse sodales purus at laoreet convallis. Fusce molestie, sapien nec ultrices malesuada, orci nisl sagittis ligula, pretium lacinia risus lectus id nisi. Fusce mollis quam imperdiet consectetur pulvinar. Aenean dolor metus, sagittis eu luctus ut, faucibus et justo. Nam non tortor dui. Quisque volutpat tellus ac justo congue gravida</p>
+            <p id="modalFilmDescription"></p>
         </div>
         <div class="film-image">
-            <img src="./images/tmp_pic.png" alt="affiche du film">
+            <img src="./images/img_not_found.svg" alt="affiche du film" id="modalFilmImage">
         </div>
         <div class="film-actors">
             <p>Avec:</p>
-            <p>{Liste des acteurs}</p>
+            <p id="modalFilmActors"></p>
         </div>
         <button class="btn-close__desktop" id="closeModalDesktop">Fermer</button>
     </dialog>

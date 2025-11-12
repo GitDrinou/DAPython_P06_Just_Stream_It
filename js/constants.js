@@ -10,3 +10,10 @@ export const ENDPOINT_API_CATEGORIES = "/api/v1/genres/";
 export const ENDPOINT_API_FILMS = "/api/v1/titles/";
 export const PARAM_SORT_BY = "sort_by";
 export const PARAM_VALUE_SORT_BY = "-imdb_score";
+
+export const DEVISE_ENUM = {
+    USD: "$",
+    EUR: '€',
+    GBP: '£',
+    JPY: '¥',
+}
