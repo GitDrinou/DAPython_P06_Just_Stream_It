@@ -2,9 +2,7 @@ import { defaultListItems, displayOtherItems, displayMorOrLess, displayModal} fr
 import { fillTheCategoriesSelector } from "./categories.js";
 import { 
     displayTheBestRankingFilmDetails,
-    displayListOfBestRankingFilm,
-    displayListOfBestRankingCategory1Film,
-    displayListOfBestRankingCategory2Film
+    displayListOfFilms
 } from "./films.js";
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -12,9 +10,9 @@ window.addEventListener('DOMContentLoaded', () => {
     // API GET Functions to fill the HTML page
     fillTheCategoriesSelector();
     displayTheBestRankingFilmDetails();
-    displayListOfBestRankingFilm();
-    displayListOfBestRankingCategory1Film();
-    displayListOfBestRankingCategory2Film();
+    displayListOfFilms("none");
+    displayListOfFilms("catégorie 1");
+    displayListOfFilms("catégorie 2");
 
     const dialog = document.querySelector('dialog');
 
