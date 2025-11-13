@@ -1,6 +1,11 @@
 import { defaultListItems, displayOtherItems, displayMorOrLess, displayModal} from "./display_utils.js";
 import { fillTheCategoriesSelector } from "./categories.js";
-import { displayTheBestRankingFilmDetails, displayListOfBestRankingFilm } from "./films.js";
+import { 
+    displayTheBestRankingFilmDetails,
+    displayListOfBestRankingFilm,
+    displayListOfBestRankingCategory1Film,
+    displayListOfBestRankingCategory2Film
+} from "./films.js";
 
 window.addEventListener('DOMContentLoaded', () => {
 
@@ -8,6 +13,8 @@ window.addEventListener('DOMContentLoaded', () => {
     fillTheCategoriesSelector();
     displayTheBestRankingFilmDetails();
     displayListOfBestRankingFilm();
+    displayListOfBestRankingCategory1Film();
+    displayListOfBestRankingCategory2Film();
 
     const dialog = document.querySelector('dialog');
 

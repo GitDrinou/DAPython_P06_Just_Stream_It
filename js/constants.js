@@ -8,8 +8,11 @@ export const LABEL_SEE_LESS = "Voir moins";
 export const URL_SERVER = "http://127.0.0.1:8000";
 export const ENDPOINT_API_CATEGORIES = "/api/v1/genres/";
 export const ENDPOINT_API_FILMS = "/api/v1/titles/";
-export const PARAM_SORT_BY = "sort_by";
-export const PARAM_VALUE_SORT_BY = "-imdb_score";
+export const PARAM_LABEL_SORT_BY = "sort_by";
+export const PARAM_VALUE_SORT_BY_IMDB = "-imdb_score";
+export const PARAM_LABEL_CATEGORY = "genre";
+export const PARAM_VALUE_CATEGORY_1 = "animation";
+export const PARAM_VALUE_CATEGORY_2 = "horror";
 
 export const DEVISE_ENUM = {
     USD: "$",

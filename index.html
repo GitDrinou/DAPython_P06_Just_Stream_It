@@ -16,7 +16,7 @@
         <article>
             <h2 class="best-film__title">Meilleur film</h2>
             <section class="best-film-details">
-                <img src="./images/img_not_found.svg" alt="Image de remplacement" id="theBestRankingImg">
+                <img src="./images/img_not_found.svg" alt="Image de remplacement si image api en erreur" id="theBestRankingImg">
                 <div class="best-film-details__content">
                     <h3 class="best-film-details__title">Lorem ipsum</h3>
                     <p class="best-film-details__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit, ipsum eu viverra porta, odio est semper ipsum, congue luctus sapien tellus a mi. Nullam mi risus, facilisis varius elit vel,</p>
@@ -30,103 +30,13 @@
             <button class="btn__more-or-less" id="rankingfilm" data-target="bestRankingList">Voir plus</button>
         </article>
         <article>
-            <h2 class="best-film-ranking-category__title">{Nom catégorie 1}</h2>
-            <section>
-                <ul class="best-film-ranking__list" id="bestRankingCategory1List">
-                    <li class="item-container">
-                        <div class="tmp-film best-film-ranking-image"></div>
-                        <div class="overlay">
-                            <h3>{Titre film #01}</h3>
-                            <div><button class="btn-details__black">Détails</button></div>
-                        </div>
-                    </li>
-                    <li class="item-container">
-                        <div class="tmp-film best-film-ranking-image"></div>
-                        <div class="overlay">
-                            <h3>{Titre film #02}</h3>
-                            <div><button class="btn-details__black">Détails</button></div>
-                        </div>
-                    </li>
-                    <li class="item-container">
-                        <div class="tmp-film best-film-ranking-image"></div>
-                        <div class="overlay">
-                            <h3>{Titre film #03}</h3>
-                            <div><button class="btn-details__black">Détails</button></div>
-                        </div>
-                    </li>
-                    <li class="item-container">
-                        <div class="tmp-film best-film-ranking-image"></div>
-                        <div class="overlay">
-                            <h3>{Titre film #04}</h3>
-                            <div><button class="btn-details__black">Détails</button></div>
-                        </div>
-                    </li>
-                    <li class="item-container">
-                        <div class="tmp-film best-film-ranking-image"></div>
-                        <div class="overlay">
-                            <h3>{Titre film #05}</h3>
-                            <div><button class="btn-details__black">Détails</button></div>
-                        </div>
-                    </li>
-                    <li class="item-container">
-                        <div class="tmp-film best-film-ranking-image"></div>
-                        <div class="overlay">
-                            <h3>{Titre film #06}</h3>
-                            <div><button class="btn-details__black">Détails</button></div>
-                        </div>
-                    </li>
-                </ul>
-            </section>
+            <h2 class="best-film-ranking-category__title" id="bestRankingCategory1Title">{Nom catégorie 1}</h2>
+            <ul class="best-film-ranking__list" id="bestRankingCategory1List"></ul>
             <button class="btn__more-or-less" id="category1film" data-target="bestRankingCategory1List">Voir plus</button>
         </article>
         <article>
-            <h2 class="best-film-ranking__title">{Nom catégorie 2}</h2>
-            <section>
-                <ul class="best-film-ranking__list" id="bestRankingCategory2List">
-                    <li class="item-container">
-                        <div class="tmp-film best-film-ranking-image"></div>
-                        <div class="overlay">
-                            <h3>{Titre film #01}</h3>
-                            <div><button class="btn-details__black">Détails</button></div>
-                        </div>
-                    </li>
-                    <li class="item-container">
-                        <div class="tmp-film best-film-ranking-image"></div>
-                        <div class="overlay">
-                            <h3>{Titre film #02}</h3>
-                            <div><button class="btn-details__black">Détails</button></div>
-                        </div>
-                    </li>
-                    <li class="item-container">
-                        <div class="tmp-film best-film-ranking-image"></div>
-                        <div class="overlay">
-                            <h3>{Titre film #03}</h3>
-                            <div><button class="btn-details__black">Détails</button></div>
-                        </div>
-                    </li>
-                    <li class="item-container">
-                        <div class="tmp-film best-film-ranking-image"></div>
-                        <div class="overlay">
-                            <h3>{Titre film #04}</h3>
-                            <div><button class="btn-details__black">Détails</button></div>
-                        </div>
-                    </li>
-                    <li class="item-container">
-                        <div class="tmp-film best-film-ranking-image"></div>
-                        <div class="overlay">
-                            <h3>{Titre film #05}</h3>
-                            <div><button class="btn-details__black">Détails</button></div>
-                        </div>
-                    </li>
-                    <li class="item-container">
-                        <div class="tmp-film best-film-ranking-image"></div>
-                        <div class="overlay">
-                            <h3>{Titre film #06}</h3>
-                            <div><button class="btn-details__black">Détails</button></div>
-                        </div>
-                    </li>
-                </ul>
-            </section>
+            <h2 class="best-film-ranking__title" id="bestRankingCategory2Title">{Nom catégorie 2}</h2>
+            <ul class="best-film-ranking__list" id="bestRankingCategory2List"></ul>
             <button class="btn__more-or-less" id="category2film" data-target="bestRankingCategory2List">Voir plus</button>
         </article>
         <article>
