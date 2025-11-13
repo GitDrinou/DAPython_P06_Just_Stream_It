@@ -11,8 +11,9 @@ export const ENDPOINT_API_FILMS = "/api/v1/titles/";
 export const PARAM_LABEL_SORT_BY = "sort_by";
 export const PARAM_VALUE_SORT_BY_IMDB = "-imdb_score";
 export const PARAM_LABEL_CATEGORY = "genre";
-export const PARAM_VALUE_CATEGORY_1 = "western";
-export const PARAM_VALUE_CATEGORY_2 = "mystery";
+export const PARAM_VALUE_CATEGORY_1 = "crime";
+export const PARAM_VALUE_CATEGORY_2 = "western";
+export const PARAM_LABEL_OTHER = "genre_contains";
 
 export const DEVISE_ENUM = {
     USD: "$",

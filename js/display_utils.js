@@ -4,7 +4,9 @@ import {
     LABEL_SEE_LESS,
     LABEL_SEE_MORE,
     MIN_WIDTH_DESKTOP,
-    MIN_WIDTH_TABLET } from "./constants.js";
+    MIN_WIDTH_TABLET 
+} from "./constants.js";
+import { displayListOfFilms } from "./films.js";
 
 export const defaultListItems = () => {
     const rankingList = document.querySelectorAll('.best-film-ranking__list');
@@ -19,21 +21,29 @@ export const defaultListItems = () => {
 
 export const displayOtherItems = () => {
     const otherSelect = document.getElementById('categoriesSelect');
-    const otherSection = document.getElementById('otherCategoriesSection');
+    const otherContainer = document.getElementById('otherCategoriesContainer');
     const otherBtn = document.getElementById('otherfilm');
 
+    let maxItems = screenItems();
+
     if (otherSelect.value == "default") {
-        otherSection.style.display = 'none';
+        otherContainer.style.display = 'none';
         otherBtn.style.display = 'none';
     }
     
-    otherSelect.addEventListener('change', () => {
+    otherSelect.addEventListener('change', async () => {
         if (otherSelect.value == "default") {
-            otherSection.style.display = 'none';
+            otherContainer.style.display = 'none';
             otherBtn.style.display = 'none';
         } else {
-            otherSection.style.display = 'block';
-            otherBtn.style.display = 'block'
+            let counterFilms = await displayListOfFilms("autres");
+            otherContainer.style.display = 'block';
+            if (counterFilms > maxItems) {
+                otherBtn.style.display = 'block';
+            } else {
+                otherBtn.style.display = 'none';
+            }
+            
         }
     })
 }
@@ -76,7 +86,7 @@ export const displayModal = (dialog) => {
 
 }
 
-function screenItems() {
+const screenItems = () => {
     let maxItems;
 
     if (window.matchMedia(MIN_WIDTH_DESKTOP).matches) {

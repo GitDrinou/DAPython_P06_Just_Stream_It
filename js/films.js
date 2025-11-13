@@ -8,6 +8,7 @@ import {
     PARAM_LABEL_CATEGORY,
     PARAM_VALUE_CATEGORY_1,
     PARAM_VALUE_CATEGORY_2,
+    PARAM_LABEL_OTHER,
     CATEGORIES,
 } from "./constants.js";
 import { defaultListItems } from "./display_utils.js";
@@ -33,7 +34,7 @@ const getListOfFilms = async (paramLabel, paramValue) => {
         const data = await fetchData(url);
         listOfFilms = [...listOfFilms, ...data.results];
 
-        if (data.results.length <= MAX_COUNT) {
+        if (data.results.length <= MAX_COUNT && data.next) {
             const dataNextPage = await fetchData(data.next);
             listOfFilms = [...listOfFilms, ...dataNextPage.results]
         }  
@@ -76,12 +77,20 @@ export const displayListOfFilms = async (category) => {
             document.getElementById('bestRankingCategory2Title').innerHTML = capitalize(PARAM_VALUE_CATEGORY_2);
             break;
         case "autres":
+            const otherSelected = document.getElementById('categoriesSelect').value;
+            listOfFilms = await getListOfFilms(PARAM_LABEL_OTHER, otherSelected);
+            htmlList = document.getElementById('bestRankingOtherList');
             break;
     }
     
-    htmlList.innerHTML = ''
+    htmlList.innerHTML = '';
+    let startIndex = 0; 
 
-    for (let elt = 1; elt < Math.min(7, listOfFilms.length); elt++) {
+    if (category == "none") {
+        startIndex = 1;
+    }
+
+    for (let elt = startIndex; elt < Math.min(7, listOfFilms.length); elt++) {
         let filmDetails = "";
         const film = listOfFilms[elt];
         const li = document.createElement('li');
@@ -124,6 +133,7 @@ export const displayListOfFilms = async (category) => {
     }
 
     defaultListItems();
+    return listOfFilms.length;
 
 }
 
