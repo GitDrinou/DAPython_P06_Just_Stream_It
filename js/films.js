@@ -8,18 +8,17 @@ import {
     PARAM_LABEL_CATEGORY,
     PARAM_VALUE_CATEGORY_1,
     PARAM_VALUE_CATEGORY_2,
-    PARAM_LABEL_OTHER
-} from "./constants.js";
+    PARAM_LABEL_OTHER,
+    MIN_LOADER_TIMER } from "./constants.js";
 import { defaultListItems } from "./display_utils.js";
+import { 
+    fetchData,
+    formatFilmBudget,
+    capitalize,
+    showLoader,
+    hideLoader,
+    delay } from './utils.js';
 
-const fetchData = async (url) => {
-    const response = await fetch(url);
-        if (!response.ok) {
-            throw new Error(`Erreur lors de la récupération des films (page ${url}).`);
-        }
-    const data = await response.json()
-    return data; 
-}
 
 const getListOfFilms = async (paramLabel, paramValue) => {
    let listOfFilms = [];
@@ -57,84 +56,101 @@ export const displayTheBestRankingFilmDetails = async () => {
 }   
 
 export const displayListOfFilms = async (category) => {
-    let listOfFilms = "";
-    let htmlList = "";
+    showLoader();
+    const startTime = Date.now();
+    try {
+        let listOfFilms = "";
+        let htmlList = "";
 
-    switch (category) {
-        case "none": 
-            listOfFilms = await getListOfFilms();
-            htmlList = document.getElementById('bestRankingList');
-            break;
-        case "catégorie 1": 
-            listOfFilms = await getListOfFilms(PARAM_LABEL_CATEGORY, PARAM_VALUE_CATEGORY_1);
-            htmlList = document.getElementById('bestRankingCategory1List');
-            document.getElementById('bestRankingCategory1Title').innerHTML = capitalize(PARAM_VALUE_CATEGORY_1);
-            break;
-        case "catégorie 2":
-            listOfFilms = await getListOfFilms(PARAM_LABEL_CATEGORY, PARAM_VALUE_CATEGORY_2);
-            htmlList = document.getElementById('bestRankingCategory2List');
-            document.getElementById('bestRankingCategory2Title').innerHTML = capitalize(PARAM_VALUE_CATEGORY_2);
-            break;
-        case "autres":
-            const otherSelected = document.getElementById('categoriesSelect').value;
-            listOfFilms = await getListOfFilms(PARAM_LABEL_OTHER, otherSelected);
-            htmlList = document.getElementById('bestRankingOtherList');
-            break;
+        switch (category) {
+            case "none": 
+                listOfFilms = await getListOfFilms();
+                htmlList = document.getElementById('bestRankingList');
+                break;
+            case "catégorie 1": 
+                listOfFilms = await getListOfFilms(PARAM_LABEL_CATEGORY, PARAM_VALUE_CATEGORY_1);
+                htmlList = document.getElementById('bestRankingCategory1List');
+                document.getElementById('bestRankingCategory1Title').innerHTML = capitalize(PARAM_VALUE_CATEGORY_1);
+                break;
+            case "catégorie 2":
+                listOfFilms = await getListOfFilms(PARAM_LABEL_CATEGORY, PARAM_VALUE_CATEGORY_2);
+                htmlList = document.getElementById('bestRankingCategory2List');
+                document.getElementById('bestRankingCategory2Title').innerHTML = capitalize(PARAM_VALUE_CATEGORY_2);
+                break;
+            case "autres":
+                const otherSelected = document.getElementById('categoriesSelect').value;
+                listOfFilms = await getListOfFilms(PARAM_LABEL_OTHER, otherSelected);
+                htmlList = document.getElementById('bestRankingOtherList');
+                break;
+        }
+    
+        htmlList.innerHTML = '';
+        let startIndex = 0; 
+        let minElts = 6;
+
+        if (category == "none") {
+            startIndex = 1;
+            minElts = 7
+        }
+
+        for (let elt = startIndex; elt < Math.min(minElts, listOfFilms.length); elt++) {
+            let filmDetails = "";
+            const film = listOfFilms[elt];
+            const li = document.createElement('li');
+            const divImage = document.createElement('div');
+            const img = document.createElement('img');
+            const overlay = document.createElement('div');
+            const h3 = document.createElement('h3');
+            const button = document.createElement('button');
+            const buttonDiv = document.createElement('div');
+            const dialog = document.querySelector('dialog');
+            const filmImage = film.image_url;
+
+            filmDetails = await getFilmDetails(film);
+
+            li.className = 'item-container';
+            divImage.className = 'best-film-ranking-image';
+
+            img.addEventListener('error', () => {
+                img.src = "./images/img_not_found.png";
+            })
+
+            img.src = film.image_url;
+            img.alt = `affiche de ${film.title}`;
+            divImage.appendChild(img);
+            overlay.className = 'overlay';
+            h3.textContent = film.title;
+            button.className = 'btn-details__black';
+            button.textContent = 'Détails';
+            buttonDiv.appendChild(button);
+            overlay.appendChild(h3);
+            overlay.appendChild(buttonDiv);
+            li.appendChild(divImage);
+            li.appendChild(overlay);
+            htmlList.appendChild(li);
+
+            button.addEventListener('click', () => {
+                dialog.showModal();
+                displayModalDetails(filmDetails);
+            });
+        }
+
+        defaultListItems();
+
+        const elapsedTime = Date.now() - startTime;
+        if (elapsedTime < MIN_LOADER_TIMER) {
+            await delay(MIN_LOADER_TIMER - elapsedTime);
+        }
+
+        return listOfFilms.length;
+    }
+    catch (error) {
+        console.error("Erreur:", error);
+    }
+    finally {
+        hideLoader();
     }
     
-    htmlList.innerHTML = '';
-    let startIndex = 0; 
-    let minElts = 6;
-
-    if (category == "none") {
-        startIndex = 1;
-        minElts = 7
-    }
-
-    for (let elt = startIndex; elt < Math.min(minElts, listOfFilms.length); elt++) {
-        let filmDetails = "";
-        const film = listOfFilms[elt];
-        const li = document.createElement('li');
-        const divImage = document.createElement('div');
-        const img = document.createElement('img');
-        const overlay = document.createElement('div');
-        const h3 = document.createElement('h3');
-        const button = document.createElement('button');
-        const buttonDiv = document.createElement('div');
-        const dialog = document.querySelector('dialog');
-        const filmImage = film.image_url;
-
-        filmDetails = await getFilmDetails(film);
-
-        li.className = 'item-container';
-        divImage.className = 'best-film-ranking-image';
-
-        img.addEventListener('error', () => {
-            img.src = "./images/img_not_found.png";
-        })
-
-        img.src = film.image_url;
-        img.alt = `affiche de ${film.title}`;
-        divImage.appendChild(img);
-        overlay.className = 'overlay';
-        h3.textContent = film.title;
-        button.className = 'btn-details__black';
-        button.textContent = 'Détails';
-        buttonDiv.appendChild(button);
-        overlay.appendChild(h3);
-        overlay.appendChild(buttonDiv);
-        li.appendChild(divImage);
-        li.appendChild(overlay);
-        htmlList.appendChild(li);
-
-        button.addEventListener('click', () => {
-            dialog.showModal();
-            displayModalDetails(filmDetails);
-        });
-    }
-
-    defaultListItems();
-    return listOfFilms.length;
 
 }
 
@@ -150,24 +166,6 @@ const getFilmDetails = async (item) => {
     }
 
     return(filmDetail);
-}
-
-const getDeviseSymbol = (codeDevise) => {
-  return DEVISE_ENUM[codeDevise];
-}
-
-const formatFilmBudget = (budget, currency) => {
-    let amount = 0;
-    if (budget != null){
-        if (budget < 1000000){
-            amount = budget;
-        } else {
-            amount = (budget / 1_000_000).toFixed(1)+"m";
-        }
-        
-        return getDeviseSymbol(currency) + amount;
-    }
-    return "Non fourni";
 }
 
 const displayModalDetails = (data) => { 
@@ -191,8 +189,4 @@ const displayModalDetails = (data) => {
     document.getElementById('modalFilmDescription').innerHTML = data.long_description;
     document.getElementById('modalFilmActors').innerHTML = data.actors.join(', ');
     document.getElementById('modalFilmImage').src = filmImage;
-}
-
-const capitalize = (val) => {
-    return String(val).charAt(0).toUpperCase() + String(val).slice(1);
 }

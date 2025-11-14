@@ -14,6 +14,7 @@ export const PARAM_LABEL_CATEGORY = "genre";
 export const PARAM_VALUE_CATEGORY_1 = "crime";
 export const PARAM_VALUE_CATEGORY_2 = "action";
 export const PARAM_LABEL_OTHER = "genre_contains";
+export const MIN_LOADER_TIMER = 500;
 
 export const DEVISE_ENUM = {
     USD: "$",
