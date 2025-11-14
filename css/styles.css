@@ -67,15 +67,10 @@ article {
     border: 6px solid var(--color-default);
 }
 
-.tmp-film {
-   width: 100%;
-   height: 329px;
-   background-color: var(--bg-color-tmp);
-}
-
 .best-film-details img {
     height: 240px;
     width: 100%;
+    object-fit: cover;
 }
 
 .best-film-details__title {
@@ -330,10 +325,9 @@ select {
     .best-film-details img {
         float: left;
         margin-right: 26px;
+        width: auto;
         height: 241px;
-        width: fit-content;
-        object-fit: cover;
-        object-position: 30% 70%;
+        border: 1px solid red;
     }
 
     .best-film-details__content {
@@ -499,7 +493,7 @@ select {
         float: left;
         margin-right: 26px;
         height: 334px;
-        width: 227px;
+        object-fit: contain;
     }
 
     .best-film-details__content {

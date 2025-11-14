@@ -111,7 +111,7 @@ export const displayListOfFilms = async (category) => {
         divImage.className = 'best-film-ranking-image';
 
         img.addEventListener('error', () => {
-            img.src = "./images/img_not_found.svg";
+            img.src = "./images/img_not_found.png";
         })
 
         img.src = film.image_url;
@@ -171,7 +171,7 @@ const displayModalDetails = (data) => {
     const filmImage = data.image_url;
 
     document.getElementById('modalFilmImage').addEventListener('error', () => {
-        document.getElementById('modalFilmImage').src = "./images/img_not_found.svg";
+        document.getElementById('modalFilmImage').src = "./images/img_not_found.png";
     })
 
     document.getElementById('modalFilmTitle').innerHTML = data.title;
