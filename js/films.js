@@ -85,12 +85,14 @@ export const displayListOfFilms = async (category) => {
     
     htmlList.innerHTML = '';
     let startIndex = 0; 
+    let minElts = 6;
 
     if (category == "none") {
         startIndex = 1;
+        minElts = 7
     }
 
-    for (let elt = startIndex; elt < Math.min(7, listOfFilms.length); elt++) {
+    for (let elt = startIndex; elt < Math.min(minElts, listOfFilms.length); elt++) {
         let filmDetails = "";
         const film = listOfFilms[elt];
         const li = document.createElement('li');

@@ -24,8 +24,6 @@ export const displayOtherItems = () => {
     const otherContainer = document.getElementById('otherCategoriesContainer');
     const otherBtn = document.getElementById('otherfilm');
 
-    let maxItems = screenItems();
-
     if (otherSelect.value == "default") {
         otherContainer.style.display = 'none';
         otherBtn.style.display = 'none';
@@ -38,12 +36,13 @@ export const displayOtherItems = () => {
         } else {
             let counterFilms = await displayListOfFilms("autres");
             otherContainer.style.display = 'block';
+            (counterFilms > MAX_COUNT) ? counterFilms = MAX_COUNT : counterFilms = counterFilms;
+            let maxItems = screenItems();
             if (counterFilms > maxItems) {
                 otherBtn.style.display = 'block';
             } else {
                 otherBtn.style.display = 'none';
             }
-            
         }
     })
 }
