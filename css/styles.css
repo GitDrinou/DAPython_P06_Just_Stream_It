@@ -126,19 +126,19 @@ article {
     background-color: rgba(0, 0, 0, 0.5);
     display: grid;
     grid-template-rows: 60% 40%;
-}
+    
+    h3 {
+        padding: 10px 24px;
+        text-align: left;
+        font-size: 1.5em;
+        font-weight: 600;
+        width: 100%;
+        color: var(--font-color-button);
+    }
 
-.overlay > h3 {
-    padding: 10px 24px;
-    text-align: left;
-    font-size: 1.5em;
-    font-weight: 600;
-    width: 100%;
-    color: var(--font-color-button);
-}
-
-.overlay > div {
-    width: 100%;
+    div {
+        width: 100%;
+    }
 }
 
 .btn-details__black {
@@ -261,6 +261,7 @@ select {
     p:first-child{
         font-weight: 400;
     }
+
     p:last-child {
         font-weight: 300;
     }
@@ -324,14 +325,14 @@ select {
         position: relative;
         display: inline-block;
         width: 100%;
-    }
 
-    .best-film-details img {
-        float: left;
-        margin-right: 26px;
-        width: auto;
-        height: 241px;
-        border: 1px solid red;
+        img {
+            float: left;
+            margin-right: 26px;
+            width: auto;
+            height: 241px;
+            border: 1px solid red;
+        }
     }
 
     .best-film-details__content {
@@ -382,11 +383,11 @@ select {
         justify-content: start;
         align-items: center;
         width: 100%;
-    }
 
-    .other__header h2 {
-        width: 100%;
-        text-align: left;
+        h2 {
+            width: 100%;
+            text-align: left;
+        }
     }
 
     .modalContainer {
@@ -425,9 +426,11 @@ select {
     .film-director {
         padding: 32px 0 32px 0;
         font-size: 1.5em;
+
         p:first-child{
             font-weight: 400;
         }
+
         p {
             font-weight: 300;
         }
@@ -449,9 +452,11 @@ select {
         font-size: 1.25em;
         font-size: regular;
         padding-bottom: 32px;
+        
         p:first-child{
             font-weight: 400;
         }
+
         p:last-child {
             font-weight: 300;
         }
@@ -491,13 +496,13 @@ select {
     .best-film-ranking__title {
         padding-top: 16px;
         padding-bottom: 23px;
-    }
 
-    .best-film-details img {
-        float: left;
-        margin-right: 26px;
-        height: 334px;
-        object-fit: contain;
+        img {
+            float: left;
+            margin-right: 26px;
+            height: 334px;
+            object-fit: contain;
+        }
     }
 
     .best-film-details__content {
@@ -528,10 +533,10 @@ select {
 
     .overlay {
         height: 102px;
-    }
 
-    .overlay h3 {
-        font-size: 1.25rem;
+        h3 {
+            font-size: 1.25rem;
+        }
     }
 
     .other__header {

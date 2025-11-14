@@ -12,7 +12,7 @@ export const PARAM_LABEL_SORT_BY = "sort_by";
 export const PARAM_VALUE_SORT_BY_IMDB = "-imdb_score";
 export const PARAM_LABEL_CATEGORY = "genre";
 export const PARAM_VALUE_CATEGORY_1 = "crime";
-export const PARAM_VALUE_CATEGORY_2 = "western";
+export const PARAM_VALUE_CATEGORY_2 = "action";
 export const PARAM_LABEL_OTHER = "genre_contains";
 
 export const DEVISE_ENUM = {
@@ -20,9 +20,6 @@ export const DEVISE_ENUM = {
     EUR: '€',
     GBP: '£',
     JPY: '¥',
-}
-
-export const CATEGORIES = {
-    1: PARAM_VALUE_CATEGORY_1,
-    2: PARAM_VALUE_CATEGORY_2,
+    INR: '₹',
+    BDT: '৳',
 }

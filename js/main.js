@@ -35,8 +35,6 @@ window.addEventListener('DOMContentLoaded', () => {
             dialog.showModal();
         }
     })
-   
-
 })
 
 window.addEventListener('resize', () => {

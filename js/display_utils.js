@@ -64,7 +64,6 @@ export const displayMorOrLess = (buttonId, listId) => {
         displayedItems(items, maxItems);
         document.getElementById(buttonId).innerHTML = LABEL_SEE_MORE;
     }
-
 }
 
 export const displayModal = (dialog) => {
@@ -82,7 +81,6 @@ export const displayModal = (dialog) => {
             dialog.close();
         })
     }
-
 }
 
 const screenItems = () => {

@@ -8,8 +8,7 @@ import {
     PARAM_LABEL_CATEGORY,
     PARAM_VALUE_CATEGORY_1,
     PARAM_VALUE_CATEGORY_2,
-    PARAM_LABEL_OTHER,
-    CATEGORIES,
+    PARAM_LABEL_OTHER
 } from "./constants.js";
 import { defaultListItems } from "./display_utils.js";
 
@@ -158,16 +157,22 @@ const getDeviseSymbol = (codeDevise) => {
 }
 
 const formatFilmBudget = (budget, currency) => {
+    let amount = 0;
     if (budget != null){
-        const millions = budget / 1_000_000;
-        return getDeviseSymbol(currency) + millions.toFixed(1)+"m";
+        if (budget < 1000000){
+            amount = budget;
+        } else {
+            amount = (budget / 1_000_000).toFixed(1)+"m";
+        }
+        
+        return getDeviseSymbol(currency) + amount;
     }
     return "Non fourni";
 }
 
 const displayModalDetails = (data) => { 
     
-    const filmRates = data.rated.includes("Not rated") ? "PG(NR) - " : "PG-" + data.rated + " -";
+    const filmRates = data.rated.includes("Not rated") ? "PG(NR) - " : data.rated + " -";
     const filmImage = data.image_url;
 
     document.getElementById('modalFilmImage').addEventListener('error', () => {
