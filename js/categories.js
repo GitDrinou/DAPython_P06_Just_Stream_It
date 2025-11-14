@@ -1,4 +1,5 @@
 import { URL_SERVER, ENDPOINT_API_CATEGORIES } from "./constants.js";
+import { fetchData } from "./utils.js";
 
 const getListOfCategories = async () => {
     let allCategories = [];
@@ -6,12 +7,7 @@ const getListOfCategories = async () => {
 
     while (nextUrl) {
         try {
-            const response = await fetch(nextUrl);
-            if (!response.ok) {
-                throw new Error(`Erreur lors de la récupération des catégories (page ${nextUrl}).`);
-            }
-
-            const data = await response.json();  
+            const data = await fetchData(nextUrl);
             allCategories = [...allCategories, ...data.results];
             nextUrl = data.next;
         } 

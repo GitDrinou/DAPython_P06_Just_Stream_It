@@ -1,3 +1,16 @@
+export const screenItems = () => {
+    let maxItems;
+
+    if (window.matchMedia(MIN_WIDTH_DESKTOP).matches) {
+        maxItems = MAX_COUNT;
+    } else if (window.matchMedia(MIN_WIDTH_TABLET).matches) {
+        maxItems = MAX_TABLET;
+    } else {
+        maxItems = MAX_MOBILE;
+    }
+    return maxItems;
+}
+
 export const fetchData = async (url) => {
     const response = await fetch(url);
         if (!response.ok) {

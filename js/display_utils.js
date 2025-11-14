@@ -7,6 +7,7 @@ import {
     MIN_WIDTH_TABLET 
 } from "./constants.js";
 import { displayListOfFilms } from "./films.js";
+import { screenItems } from "./utils.js";
 
 export const defaultListItems = () => {
     const rankingList = document.querySelectorAll('.best-film-ranking__list');
@@ -81,19 +82,6 @@ export const displayModal = (dialog) => {
             dialog.close();
         })
     }
-}
-
-const screenItems = () => {
-    let maxItems;
-
-    if (window.matchMedia(MIN_WIDTH_DESKTOP).matches) {
-        maxItems = MAX_COUNT;
-    } else if (window.matchMedia(MIN_WIDTH_TABLET).matches) {
-        maxItems = MAX_TABLET;
-    } else {
-        maxItems = MAX_MOBILE;
-    }
-    return maxItems;
 }
 
 function displayedItems(items, maxItems) {

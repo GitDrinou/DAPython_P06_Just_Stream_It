@@ -45,6 +45,20 @@ const getListOfFilms = async (paramLabel, paramValue) => {
     return listOfFilms;
 }
 
+const getFilmDetails = async (item) => {
+   let filmDetail = [];
+    const urlFilmDetail = item.url;
+    try {
+        filmDetail = await fetchData(urlFilmDetail);
+    } 
+    catch (error) {
+        console.error("Erreur :", error);
+        throw error;
+    }
+
+    return(filmDetail);
+}
+
 export const displayTheBestRankingFilmDetails = async () => {
     const listOfBestRankingFilms = await getListOfFilms();
     const filmDetails = await getFilmDetails(listOfBestRankingFilms[0]);
@@ -152,20 +166,6 @@ export const displayListOfFilms = async (category) => {
     }
     
 
-}
-
-const getFilmDetails = async (item) => {
-   let filmDetail = [];
-    const urlFilmDetail = item.url;
-    try {
-        filmDetail = await fetchData(urlFilmDetail);
-    } 
-    catch (error) {
-        console.error("Erreur :", error);
-        throw error;
-    }
-
-    return(filmDetail);
 }
 
 const displayModalDetails = (data) => { 
