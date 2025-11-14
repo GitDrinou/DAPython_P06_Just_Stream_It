@@ -167,7 +167,7 @@ const formatFilmBudget = (budget, currency) => {
 
 const displayModalDetails = (data) => { 
     
-    const filmRates = data.rated.includes("Not rated") ? "" : "PG-" + data.rated + " -";
+    const filmRates = data.rated.includes("Not rated") ? "PG(NR) - " : "PG-" + data.rated + " -";
     const filmImage = data.image_url;
 
     document.getElementById('modalFilmImage').addEventListener('error', () => {
