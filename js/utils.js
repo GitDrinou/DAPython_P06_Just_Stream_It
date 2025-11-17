@@ -2,6 +2,7 @@ import {
     MIN_WIDTH_DESKTOP,
     MIN_WIDTH_TABLET,
     MAX_TABLET,
+    MAX_COUNT,
     MAX_MOBILE, 
     DEVISE_ENUM
 } from './constants.js';
