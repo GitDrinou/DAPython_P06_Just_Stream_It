@@ -1,9 +1,6 @@
-import { defaultListItems, displayOtherItems, displayMorOrLess, displayModal} from "./display_utils.js";
-import { fillTheCategoriesSelector } from "./categories.js";
-import { 
-    displayTheBestRankingFilmDetails,
-    displayListOfFilms
-} from "./films.js";
+import { defaultListItems, displayOtherItems, displayMorOrLess, displayModal} from "./display_elements.js";
+import { fillTheCategoriesSelector } from "./api/get_categories.js";
+import { displayTheBestRankingFilmDetails, displayListOfFilms } from "./display_films.js";
 
 document.body.classList.add('js-enabled');
 document.querySelector('.js-content').style.display = 'block';

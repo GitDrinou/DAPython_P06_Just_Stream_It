@@ -1,5 +1,5 @@
-import { URL_SERVER, ENDPOINT_API_CATEGORIES } from "./constants.js";
-import { fetchData } from "./utils.js";
+import { URL_SERVER, ENDPOINT_API_CATEGORIES } from "../constants.js";
+import { fetchData } from "../utils.js";
 
 const getListOfCategories = async () => {
     let allCategories = [];

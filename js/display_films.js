@@ -1,63 +1,13 @@
+import { getListOfFilms, getFilmDetails } from "./api/get_films.js";
+import { showLoader, hideLoader, formatFilmBudget, capitalize, delay } from "./utils.js";
+import { defaultListItems } from "./display_elements.js";
 import {
-    URL_SERVER,
-    ENDPOINT_API_FILMS,
-    MAX_COUNT,
-    PARAM_LABEL_SORT_BY,
-    PARAM_VALUE_SORT_BY_IMDB,
-    DEVISE_ENUM,
-    PARAM_LABEL_CATEGORY,
-    PARAM_VALUE_CATEGORY_1,
-    PARAM_VALUE_CATEGORY_2,
+    PARAM_LABEL_CATEGORY, 
+    PARAM_VALUE_CATEGORY_1, 
+    PARAM_VALUE_CATEGORY_2, 
     PARAM_LABEL_OTHER,
-    MIN_LOADER_TIMER } from "./constants.js";
-import { defaultListItems } from "./display_utils.js";
-import { 
-    fetchData,
-    formatFilmBudget,
-    capitalize,
-    showLoader,
-    hideLoader,
-    delay } from './utils.js';
-
-
-const getListOfFilms = async (paramLabel, paramValue) => {
-   let listOfFilms = [];
-    const url = new URL(`${URL_SERVER}${ENDPOINT_API_FILMS}`);
-    url.searchParams.append(PARAM_LABEL_SORT_BY, PARAM_VALUE_SORT_BY_IMDB);
-    if (paramLabel) {
-        url.searchParams.append(paramLabel, paramValue);
-    }
-
-    try {
-        const data = await fetchData(url);
-        listOfFilms = [...listOfFilms, ...data.results];
-
-        if (data.results.length <= MAX_COUNT && data.next) {
-            const dataNextPage = await fetchData(data.next);
-            listOfFilms = [...listOfFilms, ...dataNextPage.results]
-        }  
-    } 
-    catch (error) {
-        console.error("Erreur :", error);
-        throw error;
-    }
-
-    return listOfFilms;
-}
-
-const getFilmDetails = async (item) => {
-   let filmDetail = [];
-    const urlFilmDetail = item.url;
-    try {
-        filmDetail = await fetchData(urlFilmDetail);
-    } 
-    catch (error) {
-        console.error("Erreur :", error);
-        throw error;
-    }
-
-    return(filmDetail);
-}
+    MIN_LOADER_TIMER
+} from "./constants.js";
 
 export const displayTheBestRankingFilmDetails = async () => {
     const listOfBestRankingFilms = await getListOfFilms();

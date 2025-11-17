@@ -6,7 +6,7 @@ import {
     MIN_WIDTH_DESKTOP,
     MIN_WIDTH_TABLET 
 } from "./constants.js";
-import { displayListOfFilms } from "./films.js";
+import { displayListOfFilms } from "./display_films.js";
 import { screenItems } from "./utils.js";
 
 export const defaultListItems = () => {
@@ -15,7 +15,6 @@ export const defaultListItems = () => {
 
     rankingList.forEach(list => {
         const items = list.querySelectorAll('li');
-        console.log(maxItems);
         displayedItems(items, maxItems);
     })
 }
@@ -84,7 +83,7 @@ export const displayModal = (dialog) => {
     }
 }
 
-function displayedItems(items, maxItems) {
+const displayedItems = (items, maxItems) => {
     items.forEach((item, index) => {
         if (index < maxItems) {
             item.style.display = 'block';
