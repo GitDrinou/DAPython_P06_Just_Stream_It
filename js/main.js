@@ -5,6 +5,10 @@ import {
     displayListOfFilms
 } from "./films.js";
 
+document.body.classList.add('js-enabled');
+document.querySelector('.js-content').style.display = 'block';
+document.querySelector('.no-js-message').style.display = 'none';
+
 window.addEventListener('DOMContentLoaded', () => {
 
     // API GET Functions to fill the HTML page

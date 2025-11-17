@@ -118,7 +118,6 @@ export const displayListOfFilms = async (category) => {
             const button = document.createElement('button');
             const buttonDiv = document.createElement('div');
             const dialog = document.querySelector('dialog');
-            const filmImage = film.image_url;
 
             filmDetails = await getFilmDetails(film);
 
@@ -127,6 +126,8 @@ export const displayListOfFilms = async (category) => {
 
             img.addEventListener('error', () => {
                 img.src = "./images/img_not_found.png";
+                img.alt = "Image de remplacement - Affiche non disponible";
+                img.crossorigin = "anonymous";
             })
 
             img.src = film.image_url;

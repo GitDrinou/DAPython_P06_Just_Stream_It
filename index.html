@@ -9,82 +9,89 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@1,9..40,100..1000&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="main_header">
-        <img src="./images/logo_JustStreamIT.png" alt="Logo Just Stream It" class="img-logo">
-        <h1>Vidéos à la demande</h1>
-    </header>
-    <main>
-        <div id="loader" class="loader" style="display: none;">
-            <div class="spinner"></div>
-        </div>
-        <article>
-            <h2 class="best-film__title">Meilleur film</h2>
-            <section class="best-film-details">
-                <img src="./images/img_not_found.png" alt="Image de remplacement si image api en erreur" id="theBestRankingImg">
-                <div class="best-film-details__content">
-                    <h3 class="best-film-details__title">{titre du film}</h3>
-                    <p class="best-film-details__text">{résumé du film}</p>
-                    <button class="btn-details__red">Détails</button>
-                </div>
-            </section>
-        </article>
-        <article>
-            <h2 class="best-film-ranking__title">Films les mieux notés</h2>
-            <ul class="best-film-ranking__list" id="bestRankingList"></ul>
-            <button class="btn__more-or-less" id="rankingfilm" data-target="bestRankingList">Voir plus</button>
-        </article>
-        <article>
-            <h2 class="best-film-ranking-category__title" id="bestRankingCategory1Title">{Nom catégorie 1}</h2>
-            <ul class="best-film-ranking__list" id="bestRankingCategory1List"></ul>
-            <button class="btn__more-or-less" id="category1film" data-target="bestRankingCategory1List">Voir plus</button>
-        </article>
-        <article>
-            <h2 class="best-film-ranking__title" id="bestRankingCategory2Title">{Nom catégorie 2}</h2>
-            <ul class="best-film-ranking__list" id="bestRankingCategory2List"></ul>
-            <button class="btn__more-or-less" id="category2film" data-target="bestRankingCategory2List">Voir plus</button>
-        </article>
-        <article>
-            <header class="other__header">
-                <h2 class="other__title">Autres:</h2>
-                <select id="categoriesSelect">
-                    <option value="default">-</option>
-                </select>
-            </header>
-            <div id="otherCategoriesContainer">
-                <ul class="best-film-ranking__list" id="bestRankingOtherList"></ul>
-            </div>
-            <button class="btn__more-or-less" id="otherfilm" data-target="bestRankingOtherList">Voir plus</button>
-        </article>
-    </main>
-    <footer>
-        <p>&copy;Just Stream It - Version 11.2025<br><span>par S. BRIVAL (DA-Python @OC)</span></p>
-    </footer>
-
-    <dialog class="modalContainer">
-        <button class="btn-close__mobile">❌</button>
-        <header>
-            <h2 id="modalFilmTitle">{Titre du film}</h2>
-            <p><span id="modalFilmDate"></span> - <span id="modalFilmCatageories"></span></p>
-            <p><span id="modalFilmRates"></span> <span id="modalFilmDuration"></span> (<span id="madalFilmCountries"></span>)</p>
-            <p>IMDB score: <span id="modalFilmScore"></span></p>
-            <p>Recette au box-office: <span id="modalFilmBudget"></span></p>
+    <noscript class="no-js-message">
+        <h1>JavaScript est désactivé</h1>
+        <p>Pour une expérience optimale, veuillez activer JavaScript dans votre navigateur.</p>
+        <div><img src="./images/img-np-js.png" alt="illustration javascript désactivé"></div>
+    </noscript>
+    <div class="js-content">
+        <header class="main_header">
+            <img src="./images/logo_JustStreamIT.png" alt="Logo Just Stream It" class="img-logo">
+            <h1>Vidéos à la demande</h1>
         </header>
-        <div class="film-director">
-            <p>Réalisé par:</p>
-            <p id="modalFilmDirectors"></p>
-        </div>
-        <div class="film-resume">
-            <p id="modalFilmDescription"></p>
-        </div>
-        <div class="film-image">
-            <img src="./images/img_not_found.png" alt="affiche du film" id="modalFilmImage">
-        </div>
-        <div class="film-actors">
-            <p>Avec:</p>
-            <p id="modalFilmActors"></p>
-        </div>
-        <button class="btn-close__desktop" id="closeModalDesktop">Fermer</button>
-    </dialog>
+        <main>
+            <div id="loader" class="loader" style="display: none;">
+                <div class="spinner"></div>
+            </div>
+            <article>
+                <h2 class="best-film__title">Meilleur film</h2>
+                <section class="best-film-details">
+                    <img src="./images/img_not_found.png" alt="Image de remplacement si image api en erreur" id="theBestRankingImg">
+                    <div class="best-film-details__content">
+                        <h3 class="best-film-details__title">{titre du film}</h3>
+                        <p class="best-film-details__text">{résumé du film}</p>
+                        <button class="btn-details__red">Détails</button>
+                    </div>
+                </section>
+            </article>
+            <article>
+                <h2 class="best-film-ranking__title">Films les mieux notés</h2>
+                <ul class="best-film-ranking__list" id="bestRankingList"></ul>
+                <button class="btn__more-or-less" id="rankingfilm" data-target="bestRankingList">Voir plus</button>
+            </article>
+            <article>
+                <h2 class="best-film-ranking-category__title" id="bestRankingCategory1Title">{Nom catégorie 1}</h2>
+                <ul class="best-film-ranking__list" id="bestRankingCategory1List"></ul>
+                <button class="btn__more-or-less" id="category1film" data-target="bestRankingCategory1List">Voir plus</button>
+            </article>
+            <article>
+                <h2 class="best-film-ranking__title" id="bestRankingCategory2Title">{Nom catégorie 2}</h2>
+                <ul class="best-film-ranking__list" id="bestRankingCategory2List"></ul>
+                <button class="btn__more-or-less" id="category2film" data-target="bestRankingCategory2List">Voir plus</button>
+            </article>
+            <article>
+                <header class="other__header">
+                    <h2 class="other__title">Autres:</h2>
+                    <select id="categoriesSelect">
+                        <option value="default">-</option>
+                    </select>
+                </header>
+                <div id="otherCategoriesContainer">
+                    <ul class="best-film-ranking__list" id="bestRankingOtherList"></ul>
+                </div>
+                <button class="btn__more-or-less" id="otherfilm" data-target="bestRankingOtherList">Voir plus</button>
+            </article>
+        </main>
+        <footer>
+            <p>&copy;Just Stream It - Version 11.2025<br><span>par S. BRIVAL (DA-Python @OC)</span></p>
+        </footer>
+    
+        <dialog class="modalContainer">
+            <button class="btn-close__mobile">❌</button>
+            <header>
+                <h2 id="modalFilmTitle">{Titre du film}</h2>
+                <p><span id="modalFilmDate"></span> - <span id="modalFilmCatageories"></span></p>
+                <p><span id="modalFilmRates"></span> <span id="modalFilmDuration"></span> (<span id="madalFilmCountries"></span>)</p>
+                <p>IMDB score: <span id="modalFilmScore"></span></p>
+                <p>Recette au box-office: <span id="modalFilmBudget"></span></p>
+            </header>
+            <div class="film-director">
+                <p>Réalisé par:</p>
+                <p id="modalFilmDirectors"></p>
+            </div>
+            <div class="film-resume">
+                <p id="modalFilmDescription"></p>
+            </div>
+            <div class="film-image">
+                <img src="./images/img_not_found.png" alt="affiche du film" id="modalFilmImage">
+            </div>
+            <div class="film-actors">
+                <p>Avec:</p>
+                <p id="modalFilmActors"></p>
+            </div>
+            <button class="btn-close__desktop" id="closeModalDesktop">Fermer</button>
+        </dialog>
+    </div>
 
     <script type="module" src="./js/main.js"></script>
 </body>

@@ -16,6 +16,35 @@
     font-family: 'Oswald', sans-serif;
 }
 
+.js-content { display: none; }
+
+.no-js-message {
+    display: block;
+    text-align: center;
+    padding: 48px;
+    background: linear-gradient(#f5c6cb, #ffffff);
+    border: 1px solid #f5c6cb;
+    margin: 0;
+    height: 100vh;
+    box-sizing: border-box;
+    width: 100%;
+
+    h1 {
+        display: block;
+        font-weight: 600;
+        color: var(--color-default);
+        padding-bottom: 16px;
+    }
+
+    div {
+        margin-top: 32px;
+        img{
+        width: 100%;
+        object-fit: contain;
+        }
+    }
+}
+
 body {
     padding: 42px 24px;
     text-align: center;
