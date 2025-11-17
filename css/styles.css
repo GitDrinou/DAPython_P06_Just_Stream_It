@@ -297,6 +297,12 @@ select {
     100% { transform: rotate(360deg); }
 }
 
+footer {
+    margin-top: 32px;
+    width: 100%;
+    border-top: 1px solid var(--color-default);
+}
+
 /* Tablet style (768px and more */
 @media screen and (min-width: 768px) {
     body {

@@ -15,7 +15,7 @@ export const defaultListItems = () => {
 
     rankingList.forEach(list => {
         const items = list.querySelectorAll('li');
-
+        console.log(maxItems);
         displayedItems(items, maxItems);
     })
 }
