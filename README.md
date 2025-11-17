@@ -1,4 +1,4 @@
-# Just Streat It
+# Just Stream It
 
 # Version
 1.0.0
