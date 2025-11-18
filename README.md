@@ -18,10 +18,8 @@ The data comes from a local version API.
 2. Open a terminal in the folder containing your HTML file.
 3. Execute the following command : `python -m http.server {Port Number}`or `python3 -m http.server {Port Number}` (according to your configuration).
 
-    Notes:
-    - The {Port Number} can be : 5500, 5000 or else, it have to be different of the port number of the server (launched before).
-    - CTRL + C to stop the local http server
+    Note: The {Port Number} can be : 5500, 5000 or else, it have to be different of the port number of the server (launched before).
         
 4. Open your browser and go to the `http://localhost:{Port Number}/`
 
-
+If you want to stop the local http server : `Ctrl` + `C` 
